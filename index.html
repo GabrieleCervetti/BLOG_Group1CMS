@@ -1,0 +1,154 @@
+<html>
+
+<head>
+	<title> Best blog ever </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/indexStyle.css">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index.html">Best blog ever</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar"
+				aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="navbar-nav navbar-right ml-auto">
+					<li class="nav-item"><a class="nav-link " href="login.html">Login</a></li>
+					<button type="button" class="btn btn-primary float-right" data-toggle="modal"
+						data-target="#newArticleModal">
+						Aggiungi un articolo
+					</button>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header>
+		<br>
+	</header>
+
+	<section>
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="mx-5 my-5 mz-5">Ultimi articoli</h2>
+			</div>
+		</div>
+	</section>
+
+	<div class="container-fluid" id="articleContainer"></div>
+
+	<div id="articleContainerStyle" style="display: none;">
+		<div class="card mx-2 my-4" id="article-card">
+			<div id="card-header"></div>
+			<div id="img"></div>
+			<div class="card-body">
+				<h3 class="card-title align-text"></h3>
+				<h5 class="card-subtitle align-text"></h5>
+				<div class="card-text"></div>
+				<div class="tags"></div>
+				</adiv>
+				<div class="card-footer container-fluid">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<button type="button" id="editArticle" class="btn btn-primary">Modifica articolo</button>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<button type="button" id="deleteArticle" class="btn btn-primary">Cancella articolo</button>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4" id="dataPubblicazione"></div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<button type="button" class="btn btn-outline-primary"
+									id="commentArticle">Commenta</button>
+							</div>
+							<input type="text" id="commentText" class="fomr-control" placeholder="Commenta l'articolo"
+								aria-describedby="basic-addon1">
+						</div>
+					</li>
+					<div id="nuovoCommento"></div>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade newArticleModal" id="modal" tabindex="-1" role="dialog" aria-labelledby="newArticleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Nuovo Articolo</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group mb-3">
+								<label for="recipient-name" class="col-form-label">Titolo</label>
+								<input type="text" class="form-control" id="title">
+							</div>
+							<div class="form-group mb-3">
+								<label for="recipient-name" class="col-form-label">Sottotitolo</label>
+								<input type="text" class="form-control" id="subtitle">
+							</div>
+							<div class="form-group mb-3">
+								<label for="message-text" class="col-form-label">Testo articolo</label>
+								<textarea class="form-control" id="body"></textarea>
+							</div>
+							<div class="form-group mb-3">
+								<label for="recipient-name" class="col-form-label">URL immagine</label>
+								<input type="text" class="form-control" id="image">
+							</div>
+							<div class="form-group">
+								<label for="recipient-name" class="col-form-label">Tags</label>
+								<input type="text" class="form-control" id="tags">
+							</div>
+							<div class="form-check">
+								<input type="checkbox" class="custom-control-input" id="publicCheck" value="public">
+								<label class="custom-control-label" for="publicCheck">Pubblico</label>
+							</div>
+							<div class="form-check">
+								<input type="checkbox" class="custom-control-input" id="featuredCheck" value="featured">
+								<label class="custom-control-label" for="featuredCheck">Featured</label>
+							</div>
+						</form>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+							<button type="button" id="saveArticleBtn" class="btn btn-primary">Pubblica</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End Modal-->
+
+			<footer>
+
+			</footer>
+
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+				integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+				crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+				crossorigin="anonymous"></script>
+			<script src="app/Services/restController.js"></script>
+			<script src="app/Controllers/indexController.js"></script>
+			<script src="app/Models/Post.js"></script>
+			<script src="app/Models/Comment.js"></script>
+			<script>
+				new IndexController().init();
+			</script>
+
+</body>
+
+</html>

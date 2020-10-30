@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/loginStyle.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id="bar">
+            <div id="container">
+                <!-- Login Starts Here -->
+                <div id="loginContainer">
+                    <a href="#" id="loginButton"><span>Login</span><em></em></a>
+                    <div style="clear:both"></div>
+                    <div id="loginBox">
+                        <form id="loginForm">
+                            <fieldset id="body">
+                                <fieldset>
+                                    <label for="email">Username</label>
+                                    <input type="text" name="email" id="email" class="required" />
+                                </fieldset>
+                                <fieldset>
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="required" />
+                                </fieldset>
+                                <input type="submit" id="login" value="Sign in" />
+                                <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
+                            </fieldset>
+                            <span><a href="#">Forgot your password?</a></span>
+                        </form>
+                    </div>
+                </div>
+                <!-- Login Ends Here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#loginForm").validate({
+                rules: {
+                    email: {
+                        required: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "specify email"
+                    },
+                    password: {
+                        required: "specify password"
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>
